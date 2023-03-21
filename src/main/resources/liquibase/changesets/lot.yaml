@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-lot-table
+      author: Pavel Nikolenko
+      changes:
+        - createTable:
+            tableName: lot
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: start_price
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: bid_price
+                  type: integer
+                  constraints:
+                    nullable: false
