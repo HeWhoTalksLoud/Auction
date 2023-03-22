@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-bid-table
+      author: Pavel Nikolenko
+      changes:
+        - createTable:
+            tableName: bid
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: bidder_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    references: bidder(id)
+                    foreignKeyName: fk_bid_bidder
+              - column:
+                  name: bid_date_time
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lot_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    references: lot(id)
+                    foreignKeyName: fk_bid_lot

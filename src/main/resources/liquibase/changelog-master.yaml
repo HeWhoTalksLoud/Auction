@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: liquibase/changesets/bidder.yaml
+  - include:
+      file: liquibase/changesets/lot.yaml
+  - include:
+      file: liquibase/changesets/bid.yaml
