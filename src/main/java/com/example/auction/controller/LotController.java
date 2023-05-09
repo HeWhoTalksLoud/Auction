@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.StringWriter;
 import java.util.List;
 
 
@@ -130,7 +127,7 @@ public class LotController {
     // в одном файле CSV
     @GetMapping("/export")
     public void exportLotsToCSV(@RequestParam(name = "page",
-            required = false) String fileName, HttpServletResponse response) throws IOException {
+            required = false) HttpServletResponse response) throws IOException {
         List<FullLotDTO> fullLotDTOs = lotService.getAllFullLots();
         if (fullLotDTOs == null) return;
 
