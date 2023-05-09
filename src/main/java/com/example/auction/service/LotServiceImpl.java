@@ -112,7 +112,7 @@ public class LotServiceImpl implements LotService {
         if (lot == null) {
             throw new LotNotFoundException();
         }
-        if (lot.getStatus() == LotStatus.STOPPED.getString()) return;
+        if (lot.getStatus().equals(LotStatus.STOPPED.getString())) return;
         lot.setStatus(LotStatus.STOPPED.getString());
         lotRepository.save(lot);
     }
@@ -160,18 +160,6 @@ public class LotServiceImpl implements LotService {
         if (lot == null) return null;
         Integer numberOfBids = bidRepository.countAllByLotId(lotID);
         return lot.getStartPrice() + lot.getBidPrice() * numberOfBids;
-    }
-
-    @Override
-    public List<LotDTO> getAllLots() {
-        List<Lot> lots = lotRepository.findAll();
-        if (lots.isEmpty()) return null;
-        List<LotDTO> dtos = new ArrayList<>();
-        for (Lot lot : lots) {
-            LotDTO dto = LotDTO.fromLot(lot);
-            dtos.add(dto);
-        }
-        return dtos;
     }
 
     @Override

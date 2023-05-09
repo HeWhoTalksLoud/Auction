@@ -18,7 +18,7 @@ public interface LotService {
     void stopBidding(Long lotID) throws LotNotFoundException;
     LotDTO createLot(CreateLotDTO createLotDTO);
     List<LotDTO> getLotsPage(LotStatus lotStatus, Integer page);
-    List<LotDTO> getAllLots();
+
     List<FullLotDTO> getAllFullLots();
     Integer getCurrentLotPrice(Long lotID);
 }

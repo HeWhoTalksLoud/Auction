@@ -16,9 +16,4 @@ public class BidDTO {
         dto.setBidDateTime(bid.getBidDateTime());
         return dto;
     }
-    public Bid toBid() {
-        Bid bid = new Bid();
-        bid.setBidDateTime(this.getBidDateTime());
-        return bid;
-    }
 }
